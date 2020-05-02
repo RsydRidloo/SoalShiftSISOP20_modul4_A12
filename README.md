@@ -47,6 +47,26 @@ INFO::200419-18:29:33::RENAME::/iz1/yena.jpg::/iz1/yena.jpeg
           fprintf(demo, "%s\n", result);
           fclose(demo);
           }
+          
+Penjelasan  :
+-  if(check==0) {
+                 strcpy(flag,"WARNING");
+          }
+            else{                                     = Kondisi untuk memabgi log menjadi 2 level yaitu WARNING dan INFO
+                  strcpy(flag,"INFO");
+          }
+-  if(check2==0) {      = Pengondisian  penyesuaian loging dengan jenis sistem yang berjalan 
+                  snprintf(result,1024,"%s::%02d%02d%02d%02d:%02d:%02d::%s::%s",                          
+                  flag, tm.tm_year%100, tm.tm_mon+1, tm.tm_mday,tm.tm_hour, tm.tm_min, tm.tm_sec, desc, path);
+          }
+            else{
+                  snprintf(result,1024,"%s::%02d%02d%02d%02d:%02d:%02d::%s::%s::%s",                      
+                  flag, tm.tm_year%100, tm.tm_mon+1, tm.tm_mday,tm.tm_hour, tm.tm_min, tm.tm_sec, desc, path, path2);
+          }
+      
+- demo=fopen("/home/ridlo28/fs.log", "a"); = untuk membuat file fs.log
+- fprintf(demo, "%s\n", result);           = Untuk mencetak result pada file fs.log
+
 
 
 
