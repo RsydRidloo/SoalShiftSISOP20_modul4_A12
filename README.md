@@ -65,7 +65,7 @@ Penjelasan  :
           }
       
 - demo=fopen("/home/ridlo28/fs.log", "a"); = untuk membuat file fs.log
-- fprintf(demo, "%s\n", result);           = Untuk mencetak result pada file fs.log
+- fprintf(demo, "%s\n", result);           = Untuk mencetak isi result pada file fs.log
 
 
 
