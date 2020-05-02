@@ -23,6 +23,31 @@ INFO::200419-18:29:28::MKDIR::/iz1
 INFO::200419-18:29:33::CREAT::/iz1/yena.jpg
 INFO::200419-18:29:33::RENAME::/iz1/yena.jpg::/iz1/yena.jpeg
 
+        void Generator(char *desc, char *path, int check, int check2, char *path2){
+          char result[1024];
+          char flag[10];
+          FILE *demo;
+          if(check==0) {
+                 strcpy(flag,"WARNING");
+          }
+            else{
+                  strcpy(flag,"INFO");
+          }
+            time_t t = time(NULL); 
+            struct tm tm = *localtime(&t); //nampilin waktu sekarang
+            if(check2==0) {
+                  snprintf(result,1024,"%s::%02d%02d%02d%02d:%02d:%02d::%s::%s", flag, tm.tm_year%100, tm.tm_mon+1, tm.tm_mday, 
+                  tm.tm_hour, tm.tm_min, tm.tm_sec, desc, path);
+          }
+            else{
+                  snprintf(result,1024,"%s::%02d%02d%02d%02d:%02d:%02d::%s::%s::%s", flag, tm.tm_year%100, tm.tm_mon+1, tm.tm_mday,       
+                  tm.tm_hour, tm.tm_min, tm.tm_sec, desc, path, path2);
+          }
+          demo=fopen("/home/ridlo28/fs.log", "a");
+          fprintf(demo, "%s\n", result);
+          fclose(demo);
+          }
+
 
 
 
